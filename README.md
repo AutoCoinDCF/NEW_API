@@ -1,3 +1,3 @@
-# QBInterface
+# QBAPI
 
-This project contains all the interface code.
+This project is implemented for the connection between the App layer and the base TextParser layer.

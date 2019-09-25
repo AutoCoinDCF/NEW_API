@@ -1,0 +1,10 @@
+This file is used to explain the usage of executable files.
+
+The function:
+1.'Create_sqlgraph_from_mongo_es.py' can be used to select data from 'es' and 'mongodb' and save it as a file in csv format.
+
+2.The 'data_test' folder and the files it contains should be located at 'sqlgraph@10.60.1.143'. Run 'create_event graph.sh' to move the relevant files into 'sqlgraph@10.60.1.143:data_test/event', create a sqlgraph database and import the table.
+
+How to use those files:
+1.sh run.py. After an hour of operation, it will transfer the file to 'sqlgraph@10.60.1.143:data_test'. At this time, you need to enter the password of the 'sqlgraph' account sqlgraph.
+2.sh create_event_graph.sh.

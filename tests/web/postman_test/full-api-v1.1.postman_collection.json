@@ -1,0 +1,786 @@
+{
+	"variables": [],
+	"info": {
+		"name": "full-api-v1.1",
+		"_postman_id": "7e6fcaff-3f39-44e1-0438-0d63e6047f6f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "search",
+			"description": "",
+			"item": [
+				{
+					"name": "Fuzzy Match",
+					"request": {
+						"url": {
+							"raw": "10.60.1.140:5001/fuzzy-match/?pattern=习近平",
+							"host": [
+								"10",
+								"60",
+								"1",
+								"140"
+							],
+							"port": "5001",
+							"path": [
+								"fuzzy-match",
+								""
+							],
+							"query": [
+								{
+									"key": "pattern",
+									"value": "习近平",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "模糊匹配"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "layout",
+			"description": "",
+			"item": [
+				{
+					"name": "Hierarchical nodes structure",
+					"request": {
+						"url": "10.60.1.140:5001/hierarchical-node-structure/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nodeIds\": [\n\t\t\"Q15031\",\n\t\t\"Q301282\",\n\t\t\"Q17499761\",\n\t\t\"Q430911\",\n\t\t\"Q30941000\",\n\t\t\"Q148\",\n\t\t\"Q4119708\",\n\t\t\"Q17427\",\n\t\t\"Q8044049\",\n\t\t\"Q1441290\",\n\t\t\"Q23\"\n\t\t],\n\t\"RootNodeId\": \"Q301282\",\n\t\"edge_from_backend\": true\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "knowledge",
+			"description": "",
+			"item": [
+				{
+					"name": "Entity info",
+					"request": {
+						"url": "10.60.1.140:5001/entity-info/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nodeIds\": [\"Q7747\",\"Q15031\"]\n}"
+						},
+						"description": "Find the rough information of entity data in ES\n从ES中找出entity数据的粗略信息"
+					},
+					"response": []
+				},
+				{
+					"name": "Entity Detail",
+					"request": {
+						"url": "10.60.1.140:5001/entity-detail/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nodeIds\": [\"Q7747\",\"Q15031\"]\n}"
+						},
+						"description": "Search the detail info of a list of Entity nodes\n\n搜索实体的详细信息"
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/neighbor-datas/?ClassName=knowledge&nodeId=Q370363",
+					"request": {
+						"url": "10.60.1.140:5001/neighbor-datas/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ClassName\":\"knowledge\",\n    \"nodeIds\":[\"Q7747\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/neighbor-datas-aggregated/?ClassName=knowledge&nodeId=Q370363 copy",
+					"request": {
+						"url": "10.60.1.140:5001/neighbor-datas-aggregated/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ClassName\":\"knowledge\",\n    \"nodeIds\":[\"Q301282\",\"Q148\"],\n    \"limit\": 20\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Find Paths",
+					"request": {
+						"url": {
+							"raw": "10.60.1.140:5001/all-path-data/?start=Q15031&end=Q301282&step=5",
+							"host": [
+								"10",
+								"60",
+								"1",
+								"140"
+							],
+							"port": "5001",
+							"path": [
+								"all-path-data",
+								""
+							],
+							"query": [
+								{
+									"key": "start",
+									"value": "Q15031",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "end",
+									"value": "Q301282",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "step",
+									"value": "5",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": "找出两点之间的所有路径"
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/edges-inside-nodes/",
+					"request": {
+						"url": "10.60.1.140:5001/edges-inside-nodes/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nodeIds\": [\"Q23\", \"Q24\", \"Q20\", \"Q30\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/edge-between-two-groups/",
+					"request": {
+						"url": "10.60.1.140:5001/edges-between-two-groups/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nodeIds1\": [\"Q23\", \"Q24\", \"Q30\"],\n\t\"nodeIds2\": [\"Q20\", \"Q34\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/commom-neighbor-datas/?ClassName=knowledge&nodeId=Q370363",
+					"request": {
+						"url": "10.60.1.140:5001/common-neighbor-datas/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ClassName\":\"knowledge\",\n    \"nodeIds\":[\"Q23\", \"Q38\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "event",
+			"description": "",
+			"item": [
+				{
+					"name": "10.60.1.140:5001/event-exploration/",
+					"request": {
+						"url": "10.60.1.140:5001/event-exploration/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nodeIds\":[\"Q7747\",\"Q22686\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/limit-event-by-time/",
+					"request": {
+						"url": "10.60.1.140:5001/limit-event-by-time/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nodeIds\":  [\"Q7747\", \"Q22686\", \"Q15031\", \"Q159\"],\n\t\"startDate\": \"2018-1-10\",\n\t\"endDate\": \"2019-12-5\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Event to Time",
+					"request": {
+						"url": "10.60.1.140:5001/event-2-time/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"EventIds\":[\"V101\",\"V32\",\"V45\"]\n}"
+						},
+						"description": "Given a list of event id, return the time info\n统计事件的时间轴信息"
+					},
+					"response": []
+				},
+				{
+					"name": "Event Detail",
+					"request": {
+						"url": "10.60.1.140:5001/event-detail/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"EventIds\":[\"5c42f7059c2b888d83ba55da_d4_s22\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Entity to Event",
+					"request": {
+						"url": "10.60.1.140:5001/entity-2-events/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"EntityIds\":[\"Q41048878\",\"Q750438\",\"Q40998022\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "doc",
+			"description": "",
+			"item": [
+				{
+					"name": "10.60.1.140:5001/context-section-search/?keyword=The White House",
+					"request": {
+						"url": {
+							"raw": "10.60.1.140:5001/context-section-search/?keyword=The White House",
+							"host": [
+								"10",
+								"60",
+								"1",
+								"140"
+							],
+							"port": "5001",
+							"path": [
+								"context-section-search",
+								""
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "The White House",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/context-by-text/?query=The White House&page=1&timeStart=0&timeEnd=928940410&isSortByTime=asc&searchSize",
+					"request": {
+						"url": {
+							"raw": "10.60.1.140:5001/context-by-text/?query=The White House&page=1&timeStart=0&timeEnd=928940410&isSortByTime=desc",
+							"host": [
+								"10",
+								"60",
+								"1",
+								"140"
+							],
+							"port": "5001",
+							"path": [
+								"context-by-text",
+								""
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "The White House",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "timeStart",
+									"value": "0",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "timeEnd",
+									"value": "928940410",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "isSortByTime",
+									"value": "desc",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/context-by-id/?idValue=5c32213d5ee5d656ce920119",
+					"request": {
+						"url": {
+							"raw": "10.60.1.140:5001/context-by-id/?idValue=5c32213d5ee5d656ce920119",
+							"host": [
+								"10",
+								"60",
+								"1",
+								"140"
+							],
+							"port": "5001",
+							"path": [
+								"context-by-id",
+								""
+							],
+							"query": [
+								{
+									"key": "idValue",
+									"value": "5c32213d5ee5d656ce920119",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Document Detail",
+					"request": {
+						"url": "10.60.1.140:5001/doc-detail/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"docIds\": [ \"5c32213d5ee5d656ce920119\", \"5c3220979c2b888d7abb14be\", \"5c3220979c2b888d7759367d\" ]\n}"
+						},
+						"description": "Find the detials of a list of document by id \n通过文档id查询文章详情"
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/context-by-entity-ids/",
+					"request": {
+						"url": "10.60.1.140:5001/context-by-entity-ids/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"entityIds\": [\"Q40741179\",\"Q827634\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/docs-expand-entity/",
+					"request": {
+						"url": "10.60.1.140:5001/docs-expand-entity/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"docIds\":[\"5c32213d5ee5d656ce920119\",\"5c32213d5ee5d656ce920119\",\"5c3220979c2b888d7759367d\"]\n}\n"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "statistics",
+			"description": "",
+			"item": [
+				{
+					"name": "10.60.1.140:5001/context-time-count/?keyword=re-education",
+					"request": {
+						"url": {
+							"raw": "10.60.1.140:5001/context-time-count/?keyword=re-education",
+							"host": [
+								"10",
+								"60",
+								"1",
+								"140"
+							],
+							"port": "5001",
+							"path": [
+								"context-time-count",
+								""
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "re-education",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/node-statistics/",
+					"request": {
+						"url": "10.60.1.140:5001/node-statistics/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nodeIds\": [\"Q1703125\",\n            \"Q2496425\",\n            \"Q4866789\",\n            \"Q5049419\",\n            \"Q5628404\",\n            \"Q5678801\",\n            \"Q6713116\",\n            \"Q6891437\",\n            \"Q7049864\",\n            \"Q7296130\",\n            \"Q12987832\"\n\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/node-statistics-in-type/",
+					"request": {
+						"url": "10.60.1.140:5001/node-statistics-in-type/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nodeIds\": [\"Q148\", \"Q159\"],\n\t\"typename\": \"administrative\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/graph-statistics/",
+					"request": {
+						"url": "10.60.1.140:5001/graph-statistics/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n        \"nodes\": [\n            \"Q854\",\n            \"Q1703125\",\n            \"Q2496425\",\n            \"Q4866789\",\n            \"Q5049419\",\n            \"Q5628404\",\n            \"Q5678801\",\n            \"Q6713116\",\n            \"Q6891437\",\n            \"Q7049864\",\n            \"Q7296130\",\n            \"Q12987832\"\n        ],\n        \"links\": [                \n            {\n                \"from\": \"Q2496245\",\n                \"id\": \"911592\",\n                \"to\": \"Q854\",\n                \"type\": \"country\"\n            },\n            {\n                \"from\": \"Q12987832\",\n                \"id\": \"911716\",\n                \"to\": \"Q854\",\n                \"type\": \"country of citizenship\"\n            },\n            {\n                \"from\": \"Q6713116\",\n                \"id\": \"1016824\",\n                \"to\": \"Q2496425\",\n                \"type\": \"member of political party\"\n            },\n            {\n                \"from\": \"Q7296130\",\n                \"id\": \"1016825\",\n                \"to\": \"Q2496425\",\n                \"type\": \"member of political party\"\n            },\n            {\n                \"from\": \"Q12987832\",\n                \"id\": \"1016826\",\n                \"to\": \"Q2496425\",\n                \"type\": \"member of political party\"\n            }\n        ]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "10.60.1.140:5001/doc-statistics/?query=re-education",
+					"request": {
+						"url": {
+							"raw": "10.60.1.140:5001/doc-statistics/?query=re-education",
+							"host": [
+								"10",
+								"60",
+								"1",
+								"140"
+							],
+							"port": "5001",
+							"path": [
+								"doc-statistics",
+								""
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "re-education",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Event2TimeCount",
+					"request": {
+						"url": "10.60.1.140:5001/event-time-count/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"EventIds\":[\"5c42f7059c2b888d83ba55da_d4_s22\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GIS",
+			"description": "",
+			"item": [
+				{
+					"name": "Node2GIS",
+					"request": {
+						"url": "10.60.1.140:5001/node-to-GIS/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nodeIds\":[\"V101\",\"V32\",\"V45\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "info",
+			"request": {
+				"url": "10.60.1.141:5002/info/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nodeIds\": [\"Q41046114\"],\n\t\"TypeLabel\": \"document\",\n\t\"isAcc\": true\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "related",
+			"request": {
+				"url": "10.60.1.140:5001/related/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nodeIds\": [\"Q41046114\"],\n\t\"TypeLabel\": \"document\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

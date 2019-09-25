@@ -1,0 +1,38 @@
+{
+  "test": {
+    "address": "10.60.1.142",
+    "port": 8123,
+    "img_url_template": "http://10.60.1.143/pic_lib/padded/{id}.png",
+    "database_name": "EEDGraphSingular_v16",
+    "graph_name": "relationGraph",
+    "event_graph_database_name": "EEDGraphSingular_v16",
+    "event_graph_graph_name": "relationGraph"
+  },
+  "dev": {
+    "address": "10.60.1.142",
+    "port": 8123,
+    "img_url_template": "http://10.60.1.143/pic_lib/padded/{id}.png",
+    "database_name": "EEDGraphSingular_v16",
+    "graph_name": "relationGraph",
+    "event_graph_database_name": "EEDGraphSingular_v16",
+    "event_graph_graph_name": "relationGraph"
+  },
+  "product": {
+    "address": "10.60.1.142",
+    "port": 8123,
+    "img_url_template": "http://10.60.1.143/pic_lib/padded/{id}.png",
+    "database_name": "EEDGraphSingular_v16",
+    "graph_name": "relationGraph",
+    "event_graph_database_name": "EEDGraphSingular_v16",
+    "event_graph_graph_name": "relationGraph"
+  },
+  "dev_test": {
+    "address": "10.60.1.142",
+    "port": 8123,
+    "img_url_template": "http://10.60.1.143/pic_lib/padded/{id}.png",
+    "database_name": "EEDGraphSingular_v16",
+    "graph_name": "relationGraph",
+    "event_graph_database_name": "EEDGraphSingular_v16",
+    "event_graph_graph_name": "relationGraph"
+  }
+}

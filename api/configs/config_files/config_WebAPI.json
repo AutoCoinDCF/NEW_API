@@ -1,0 +1,30 @@
+{
+  "test": {
+    "CORS_resources": "*",
+    "CORS_origins": "*",
+    "run_host": "0.0.0.0",
+    "run_port": 5100,
+    "run_debug": false
+  },
+  "dev": {
+    "CORS_resources": "*",
+    "CORS_origins": "*",
+    "run_host": "0.0.0.0",
+    "run_port": 5001,
+    "run_debug": true
+  },
+  "dev_test": {
+    "CORS_resources": "*",
+    "CORS_origins": "*",
+    "run_host": "10.60.1.141",
+    "run_port": 5100,
+    "run_debug": false
+  },
+  "human": {
+    "CORS_resources": "*",
+    "CORS_origins": "*",
+    "run_host": "10.60.1.141",
+    "run_port": 5100,
+    "run_debug": true
+  }
+}

@@ -1,0 +1,252 @@
+{
+	"variables": [],
+	"info": {
+		"name": "full-api-v0.2-dev",
+		"_postman_id": "a548f895-bf72-5099-c412-10d18ced45f8",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "10.60.1.140:5001/node-ids/?pattern=Nero",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/node-ids/?pattern=Nero",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"node-ids",
+						""
+					],
+					"query": [
+						{
+							"key": "pattern",
+							"value": "Nero",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/node-datas/",
+			"request": {
+				"url": "10.60.1.140:5001/node-datas/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nodeIds\": [\"Q370363\",\"Q1413\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/neighbor-datas/?ClassName=knowledge&nodeId=Q370363",
+			"request": {
+				"url": "10.60.1.140:5001/neighbor-datas/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ClassName\":\"knowledge\",\n    \"nodeIds\":[\"Q370363\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/all-path-data/?start=Q370363&end=Q82955",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/all-path-data/?start=Q370363&end=Q82955&step=5",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"all-path-data",
+						""
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "Q370363",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "end",
+							"value": "Q82955",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "step",
+							"value": "5",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/fuzzy-matchs/?pattern=George",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/fuzzy-matchs/?pattern=George",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"fuzzy-matchs",
+						""
+					],
+					"query": [
+						{
+							"key": "pattern",
+							"value": "George",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/context-by-text/?query=中南海事件&page=1&timeStart=0&timeEnd=928940410&isSortByTime=asc&searchSize",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/context-by-text/?query=中南海事件&page=1&timeStart=0&timeEnd=928940410&isSortByTime=desc",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"context-by-text",
+						""
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "中南海事件",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "timeStart",
+							"value": "0",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "timeEnd",
+							"value": "928940410",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "isSortByTime",
+							"value": "desc",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/context-by-id/?idValue=5be561745ee5d656cdecc2d6",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/context-by-id/?idValue=5be561745ee5d656cdecc2d6",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"context-by-id",
+						""
+					],
+					"query": [
+						{
+							"key": "idValue",
+							"value": "5be561745ee5d656cdecc2d6",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

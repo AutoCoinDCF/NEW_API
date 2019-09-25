@@ -1,0 +1,578 @@
+{
+	"variables": [],
+	"info": {
+		"name": "full-api-v0.10",
+		"_postman_id": "22286c87-b29b-01fe-77b0-05980d40e2ec",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "10.60.1.140:5001/node-datas/",
+			"request": {
+				"url": "10.60.1.140:5001/node-datas/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nodeIds\": [\"Q370363\",\"Q1413\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/neighbor-datas/?ClassName=knowledge&nodeId=Q370363",
+			"request": {
+				"url": "10.60.1.140:5001/neighbor-datas/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ClassName\":\"knowledge\",\n    \"nodeIds\":[\"Q370363\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/all-path-data/?start=Q370363&end=Q82955",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/all-path-data/?start=Q370363&end=Q82955&step=5",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"all-path-data",
+						""
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "Q370363",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "end",
+							"value": "Q82955",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "step",
+							"value": "5",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/fuzzy-matchs/?pattern=George",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/fuzzy-matchs/?pattern=George",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"fuzzy-matchs",
+						""
+					],
+					"query": [
+						{
+							"key": "pattern",
+							"value": "George",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/context-by-text/?query=中南海事件&page=1&timeStart=0&timeEnd=928940410&isSortByTime=asc&searchSize",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/context-by-text/?query=中南海事件&page=1&timeStart=0&timeEnd=928940410&isSortByTime=desc",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"context-by-text",
+						""
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "中南海事件",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "timeStart",
+							"value": "0",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "timeEnd",
+							"value": "928940410",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "isSortByTime",
+							"value": "desc",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/context-by-id/?idValue=5be561745ee5d656cdecc2d6",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/context-by-id/?idValue=5be561745ee5d656cdecc2d6",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"context-by-id",
+						""
+					],
+					"query": [
+						{
+							"key": "idValue",
+							"value": "5be561745ee5d656cdecc2d6",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/graph-statistics/",
+			"request": {
+				"url": "10.60.1.140:5001/graph-statistics/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n        \"nodes\": [\n            \"Q854\",\n            \"Q1703125\",\n            \"Q2496425\",\n            \"Q4866789\",\n            \"Q5049419\",\n            \"Q5628404\",\n            \"Q5678801\",\n            \"Q6713116\",\n            \"Q6891437\",\n            \"Q7049864\",\n            \"Q7296130\",\n            \"Q12987832\"\n        ],\n        \"links\": [                \n            {\n                \"from\": \"Q2496245\",\n                \"id\": \"911592\",\n                \"to\": \"Q854\",\n                \"type\": \"country\"\n            },\n            {\n                \"from\": \"Q12987832\",\n                \"id\": \"911716\",\n                \"to\": \"Q854\",\n                \"type\": \"country of citizenship\"\n            },\n            {\n                \"from\": \"Q6713116\",\n                \"id\": \"1016824\",\n                \"to\": \"Q2496425\",\n                \"type\": \"member of political party\"\n            },\n            {\n                \"from\": \"Q7296130\",\n                \"id\": \"1016825\",\n                \"to\": \"Q2496425\",\n                \"type\": \"member of political party\"\n            },\n            {\n                \"from\": \"Q12987832\",\n                \"id\": \"1016826\",\n                \"to\": \"Q2496425\",\n                \"type\": \"member of political party\"\n            }\n        ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/doc-statistics/?query=re-education",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/doc-statistics/?query=re-education",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"doc-statistics",
+						""
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "re-education",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/context-by-doc-ids/",
+			"request": {
+				"url": "10.60.1.140:5001/context-by-doc-ids/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"docIds\": [ \"5bb115fd5ee5d656d0260eeb\", \"5b9b6d949c2b88070d84ac6b\", \"5bb117385ee5d656d0260fa6\" ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/context-by-entity-ids/",
+			"request": {
+				"url": "10.60.1.140:5001/context-by-entity-ids/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"entityIds\": [\"Q22686\", \"Q15031\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/context-time-count/?keyword=re-education",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/context-time-count/?keyword=re-education",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"context-time-count",
+						""
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "re-education",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/context-section-search/?keyword=中南海事件",
+			"request": {
+				"url": {
+					"raw": "10.60.1.140:5001/context-section-search/?keyword=中南海事件",
+					"host": [
+						"10",
+						"60",
+						"1",
+						"140"
+					],
+					"port": "5001",
+					"path": [
+						"context-section-search",
+						""
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "中南海事件",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/commom-neighbor-datas/?ClassName=knowledge&nodeId=Q370363",
+			"request": {
+				"url": "10.60.1.140:5001/common-neighbor-datas/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ClassName\":\"knowledge\",\n    \"nodeIds\":[\"Q23\", \"Q38\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/node-datas-coarse/",
+			"request": {
+				"url": "10.60.1.140:5001/node-datas-coarse/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nodeIds\": [\"Q370363\",\"Q1413\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/event-exploration/ copy",
+			"request": {
+				"url": "10.60.1.140:5001/event-exploration/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nodeIds\":[\"Q7747\",\"Q22686\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/limit-event-by-time/ copy",
+			"request": {
+				"url": "10.60.1.140:5001/limit-event-by-time/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nodeIds\":  [\"Q7747\", \"Q22686\", \"Q15031\", \"Q159\"],\n\t\"startDate\": \"2018-1-10\",\n\t\"endDate\": \"2019-12-5\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/event-2-time/ copy",
+			"request": {
+				"url": "10.60.1.140:5001/event-2-time/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"EventIds\":[\"V101\",\"V32\",\"V45\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/neighbor-datas-aggregated/?ClassName=knowledge&nodeId=Q370363 copy copy",
+			"request": {
+				"url": "10.60.1.140:5001/neighbor-datas-aggregated/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ClassName\":\"knowledge\",\n    \"nodeIds\":[\"Q23\", \"Q38\"],\n    \"limit\": 20\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/edges-inside-nodes/ copy",
+			"request": {
+				"url": "10.60.1.140:5001/edges-inside-nodes/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nodeIds\": [\"Q23\", \"Q24\", \"Q20\", \"Q30\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/edge-between-two-groups/ copy",
+			"request": {
+				"url": "10.60.1.140:5001/edges-between-two-groups/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nodeIds1\": [\"Q23\", \"Q24\", \"Q30\"],\n\t\"nodeIds2\": [\"Q20\", \"Q34\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/node-statistics-in-type/ copy",
+			"request": {
+				"url": "10.60.1.140:5001/node-statistics-in-type/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nodeIds\": [\"Q20\", \"Q23\", \"Q30\"],\n\t\"typename\": \"administration\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10.60.1.140:5001/calculate-bfs-tree/ copy",
+			"request": {
+				"url": "10.60.1.140:5001/calculate-bfs-tree/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nodeIds\": [\n\t\t\"Q15031\",\n\t\t\"Q301282\",\n\t\t\"Q17499761\",\n\t\t\"Q430911\",\n\t\t\"Q30941000\",\n\t\t\"Q148\",\n\t\t\"Q4119708\",\n\t\t\"Q17427\",\n\t\t\"Q8044049\",\n\t\t\"Q1441290\",\n\t\t\"Q23\"\n\t\t],\n\t\"RootNodeId\": \"Q301282\",\n\t\"edge_from_backend\": true\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

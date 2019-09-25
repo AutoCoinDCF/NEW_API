@@ -1,0 +1,18 @@
+{
+  "test": {
+    "entity_index": "entity_0910",
+    "entity_doc_type": "entity_0910"
+  },
+  "dev": {
+    "entity_index": "entity_0910",
+    "entity_doc_type": "entity_0910"
+  },
+  "product": {
+    "entity_index": "entity_0910",
+    "entity_doc_type": "entity_0910"
+  },
+  "dev_test": {
+    "entity_index": "entity_0910",
+    "entity_doc_type": "entity_0910"
+  }
+}
