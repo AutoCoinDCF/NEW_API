@@ -781,7 +781,7 @@ class GISApplication(object):
             geoObj = json.loads(geo)
             geometryObj.append(geoObj)
         events.addEvents_queryMongoByGeometries(geometry)
-        features = events.getFeatures()
+        features = events.events
         # Tg = TheadFun()
         # features = Tg.exploreEvents(geometry)
         data = {

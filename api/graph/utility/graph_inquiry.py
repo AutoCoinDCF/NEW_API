@@ -255,7 +255,7 @@ class GraphInquiry(UtilityBaseGraphInquiry):
             from
                 out({self.event_graph_database_name}.{self.event_graph_graph_name}, v({nodeIds}), 1)
             {f"where vertexProperty(e.2, 'meta_type') = '{type_label}'" if type_label else ""}"""
-        # print("%s %s" % ("select_related_out", query))
+        print("%s %s" % ("select_related_out", query))
         return self.post_related(query)
 
     def short_path_str(self, start_node: str, end_node: str, step: str):

@@ -302,7 +302,7 @@ class esObj():
 
         elif type == "geo":
             _search = []
-            entity_ids = []
+            entity_ids,result_ids = [], []
             gis = GISApplication()
             for _location in gis.searchLocationName(localName=keyword)["data"]:
                 _location["type"] = "locationName"
@@ -315,9 +315,14 @@ class esObj():
                 elif _each["type"] != "other":
                     entity_ids.append(_each["id"])
             # 香港case实体有6.9万关系事件，1500关系实体，暂时放掉
-            if "Q8646" in entity_ids:
-                entity_ids.remove("Q8646")
-            result_ids = [id for id in self.graph.select_related(entity_ids, "event")["data"][0]]
+            try:
+                for x in ["Q8646", "Q17704", "Q19483", "Q143946", "Q220207", "Q597725", "Q598086"]:
+                    if x in entity_ids:
+                        entity_ids.remove(x)
+                a = self.graph.select_related(entity_ids, "event")
+                result_ids = [id for id in self.graph.select_related(entity_ids, "event")["data"][0]]
+            except:
+                pass
             for _each in SearchEntity:
                 if _each["id"] in result_ids:
                     _search.append(_each)

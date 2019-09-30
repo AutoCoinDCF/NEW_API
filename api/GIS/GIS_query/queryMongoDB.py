@@ -38,6 +38,26 @@ class QueryMGO():
             }
             Rows.append(Row)
 
+    def getEventRowsByGeometries_geo(self, dbconfig, geometries, Rows): ##查询一张表
+        mg = MGO(host=dbconfig['host'], port=dbconfig['port'], user=dbconfig['user'], pwd=dbconfig['pwd'],dbname=dbconfig['dbname'])
+        dbname = dbconfig['dbname']
+        collname = dbconfig['collName']
+        findOrArr= []
+        for geometry in geometries:
+            geoObj = json.loads(geometry)
+            findO_point = {'geometry':{"$within":{"$geometry":geoObj}}}
+            findOrArr.append(findO_point)
+        findObj = {'$or':findOrArr}
+        rows = mg.find(collname,findObj)
+        eventCount = 0
+        for row in rows:
+            feature = {key:value for key,value in row.items() if key != "_id"}
+            eventCount = eventCount + len(feature['properties']['Params'])
+            Rows.append(feature)
+        print('点数：'+str(len(Rows)))
+        print('事件数：'+str(eventCount))
+        return Rows
+
     def getEventRowsByGeometries(self, dbconfig, geometries, Rows): ##查询一张表
         mg = MGO(host=dbconfig['host'], port=dbconfig['port'], user=dbconfig['user'], pwd=dbconfig['pwd'],dbname=dbconfig['dbname'])
         dbname = dbconfig['dbname']
@@ -129,9 +149,73 @@ class QueryMGO():
             isIntersect = True
         return isIntersect
 
+    def getEvents_geo(self,Type,param):
+        rows = []
+        events = []
+        ids = []
+        num = 0
+        DBConfig = self.getConfigs('geo_event')
+        if Type == "id":
+            threads = [Thread(target=self.getRowsByIds,args=(cf,param,rows)) for  cf in DBConfig]
+        else :
+            threads = [Thread(target=self.getEventRowsByGeometries_geo,args=(cf,param,rows)) for  cf in DBConfig]
+        for t in threads:
+            t.start()
+        for t in threads:
+            t.join()
+        return rows
+        # for Row in rows:
+        #     try:
+        #         fieldConfig = Row["fieldConfig"]
+        #         row= Row["row"]
+        #         QBIdKey = fieldConfig["QBId"]
+        #         NameKey = fieldConfig["Name"]
+        #         locationListKey = fieldConfig["locationList"]
+        #         geometryKey = fieldConfig["geometry"]
+        #         SubtypeKey = fieldConfig["Subtype"]
+        #         EventAttrKey = fieldConfig["EventAttr"]
+        #         showHeatAttr = fieldConfig["showHeatAttr"]
+        #         EventId = str(row[QBIdKey])
+        #         localName = row[locationListKey][0][NameKey]
+        #         locationlist = row[locationListKey]
+        #         eventType = row[SubtypeKey]
+        #         for index,locationItem in enumerate(locationlist):
+        #             geometry = locationItem[geometryKey]
+        #             isIntersect = True
+        #             if len(geometry['coordinates']) == 0 or geometry['coordinates'][0] == '' or geometry['coordinates'][0] == 360 or geometry['coordinates'][1] == ''or geometry['coordinates'][1] == 360:  #去除坐标有错误的
+        #                 continue
+        #             #去除locationList中的坐标不在传入的geometry中的
+        #             if  Type == "geometry":
+        #                 if len(locationlist) > 1:
+        #                     isIntersect = False
+        #                     for geometryp in param:
+        #                         isIntersect = self.isIntersert(geometry,geometryp)
+        #                         if isIntersect:
+        #                             break
+        #             if not isIntersect:   #判l断locationlist中的每一个地点是否落在所查询的范围内
+        #                 continue
+                    
+        #             X = str(geometry['coordinates'][0])
+        #             Y = str(geometry['coordinates'][1])
+        #             ident = "event&" + X + Y
+        #             heatAttr = {}
+        #             for attr in showHeatAttr:
+        #                 attrname = attr["attrName"]
+        #                 showname = attr["showName"]
+        #                 if attrname in row[EventAttrKey]:
+        #                     heatAttr[showname] = row[EventAttrKey][attrname]
+        #             event = self.getParam(ident,EventId,index,eventType,heatAttr,geometry,localName)
+        #             events.append(event)
+        #     except:
+        #         print(row[QBIdKey]+"失败！")
+        # return events
+
+
     def getEvents(self,Type,param):
         rows = []
         events = []
+        ids = []
+        num = 0
         DBConfig = self.getConfigs('event')
         if Type == "id":
             threads = [Thread(target=self.getRowsByIds,args=(cf,param,rows)) for  cf in DBConfig]
@@ -145,7 +229,6 @@ class QueryMGO():
             try:
                 fieldConfig = Row["fieldConfig"]
                 row= Row["row"]
-                print(row['_id'])
                 QBIdKey = fieldConfig["QBId"]
                 NameKey = fieldConfig["Name"]
                 locationListKey = fieldConfig["locationList"]
@@ -156,7 +239,6 @@ class QueryMGO():
                 EventId = str(row[QBIdKey])
                 localName = row[locationListKey][0][NameKey]
                 locationlist = row[locationListKey]
-                print(locationlist)
                 eventType = row[SubtypeKey]
                 for index,locationItem in enumerate(locationlist):
                     geometry = locationItem[geometryKey]
@@ -174,12 +256,10 @@ class QueryMGO():
                     if not isIntersect:   #判l断locationlist中的每一个地点是否落在所查询的范围内
                         continue
                     
-                    print(geometry)
                     X = str(geometry['coordinates'][0])
                     Y = str(geometry['coordinates'][1])
                     ident = "event&" + X + Y
                     heatAttr = {}
-                    print(showHeatAttr)
                     for attr in showHeatAttr:
                         attrname = attr["attrName"]
                         showname = attr["showName"]
@@ -187,8 +267,13 @@ class QueryMGO():
                             heatAttr[showname] = row[EventAttrKey][attrname]
                     event = self.getParam(ident,EventId,index,eventType,heatAttr,geometry,localName)
                     events.append(event)
+                # if num < 5000:
+                #     ids.append(EventId)
+                # num = num + 1
             except:
                 print(row[QBIdKey]+"失败！")
+        # print(ids)
+        # print(num)
         return events
 
     def getOrgs(self,queryType,orgType,param):

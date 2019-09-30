@@ -1,14 +1,15 @@
 dataBaseConfig=[
         {'id':"mg_1",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'entity','type':'org'},
-        {'id':"mg_2",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'events_gtd','type':'event'},
-        {'id':"mg_3",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'events_labeled','type':'event'},
-        {'id':"mg_4",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'events_taiwan','type':'event'},
+        # {'id':"mg_2",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'events_gtd','type':'event'},
+        # {'id':"mg_3",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'events_labeled','type':'event'},
+        # {'id':"mg_4",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'events_taiwan','type':'event'},
         {'id':"mg_5",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'document_darpa','type':'doc'},
         {'id':"mg_6",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'document_gtd','type':'doc'},
         {'id':"mg_7",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'document_labeled','type':'doc'},
         {'id':"mg_8",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'document_humanrights','type':'doc'},
         {'id':"mg_9",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'document_taiwan','type':'doc'},
         {'id':"mg_10",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'events_sg_4','type':'event'},
+        {'id':"mg_10",'host':'10.60.1.140', 'port':6080, 'user':'root', 'pwd':'111111', 'dbname':'QBData', 'collName':'geo_event_sg','type':'geo_event'},
         
 ]
 

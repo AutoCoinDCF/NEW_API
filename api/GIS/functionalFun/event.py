@@ -14,7 +14,7 @@ class GIS_Events():
 
     def addEvents_queryMongoByGeometries(self,Geometries):
         qmgo = QMGO()
-        _events = qmgo.getEvents('geometry',Geometries)
+        _events = qmgo.getEvents_geo('geometry',Geometries)
         self.events.extend(_events)
 
     def getEvents(self):
