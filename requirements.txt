@@ -3,7 +3,7 @@ typing==3.7.4
 psycopg2==2.8.3
 networkx==2.3
 elasticsearch==6.3.1
-setuptools==39.0.1
+setuptools==65.5.1
 dataclasses==0.6
 defaultlist==1.0.0
 pymongo==3.7.2
